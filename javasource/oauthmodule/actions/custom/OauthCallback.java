@@ -304,7 +304,7 @@ public class OauthCallback extends RequestHandler{
 				break;
 			}
 			Core.getLogger("OauthCallback").debug("Calling action "+actionName+" with params: "+params);
-			Object result = Core.execute(context, actionName, params);
+			Object result = Core.microflowCall(actionName).withParams(params).execute(context);
 			/*
 			 * If user not found then return null
 			 * Else return the user object
